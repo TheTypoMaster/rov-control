@@ -47,7 +47,9 @@ def main():
 
 			if socket.hasln():
 				handle_topsite(socket)
-				write_to_arduino(msg, socket_arduino)
+				for topsite in topsites:
+					write_to_arduino(topsite.msg, socket_arduino)
+				
 
 		for socket in get_writeable():
 			socket.transport_out()
