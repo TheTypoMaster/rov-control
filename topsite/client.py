@@ -9,29 +9,21 @@ def main():
 	try:
 		msg = "Hello, World!"
 
-#		tcp_ip = '192.168.1.45'
-		tcp_port = 5010
+		tcp_ip = 'localhost'
+		tcp_port = 10000
 		buffer_size = 1024
 
 		s = initialize_socket()
-#		s.connect((tcp_ip, tcp_port))
-
-		s.connect(('192.168.1.45', tcp_port))
+		s.connect((tcp_ip, tcp_port))
 
 		s.send('I am alive!')
-		
-		
-		#sets up a serial interface to the arduino mega
-		ser = serial.Serial('/dev/ttyACM0',9600)
-		
+		s.send('I am alive!')
+		s.send('I am alive!')
+				
 		while True:
 			data = s.recv(buffer_size)
-			print_debuginfo("Topsite:"+ data)
-			write_arduino(ser,data)
-			print_debuginfo('write complete: '+data)
-			msg_from_arduino = read_arduino(ser) # looks like there is a error in here
-			print_debuginfo('read complete: '+ msg_from_arduino) 
-			s.send('Hei'+ msg_from_arduino)
+			print str(data)
+			s.send('Hei')
 			print_debuginfo('send complete')
 
 	except Exception, e:
@@ -58,19 +50,6 @@ class Colour:
         self.WARNING = ''
         self.FAIL = ''
         self.ENDC = ''
-
-def read_arduino(serial_name):
-	string = 'Arduino:'
-#	while (serial_name.inWaiting()):
-	temp = serial_name.read()
-#		if (temp != '\n' and temp != '\r'):
-	string  += temp
-
-	mesage_from_arduino = string 
-	return mesage_from_arduino
-
-def write_arduino(serial_name, message_to_arduino):
-	serial_name.write(message_to_arduino)
 
 def print_debuginfo(msg):
 	print Colour.blue + msg +Colour.end_colour
