@@ -2,7 +2,7 @@ from mysocket import Socket, ListenerSocket
 from select import select
 import time, sys, serial
 
-server_address = ('localhost', 10000)
+server_address = ('', 10000)
 
 def main():
 	def wait_for_work():
