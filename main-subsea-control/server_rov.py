@@ -21,7 +21,10 @@ def main():
 
 	sending_sockets = []
 
-	i = 0;
+	socket_arduino = get_serial_connection()
+	initialise()
+
+	
 
 	while True:
 		wait_for_work()
@@ -44,6 +47,7 @@ def main():
 
 			if socket.hasln():
 				handle_topsite(socket)
+				write_to_arduino(msg, socket_arduino)
 
 		for socket in get_writeable():
 			socket.transport_out()
@@ -86,11 +90,6 @@ def handle_topsite(topsite):
 
 	for topsite in topsites:
 		topsite.msg = msg
-
-	socket_arduino = get_serial_connection()
-	initialise()
-
-	write_to_arduino(msg, socket_arduino)
 
 	print "Topsite: " + msg
 
