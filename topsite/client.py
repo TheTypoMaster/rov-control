@@ -19,11 +19,14 @@ def main():
 		s.send('I am alive!')
 		s.send('I am alive!')
 		s.send('I am alive!')
-				
+
 		while True:
+
 			data = s.recv(buffer_size)
 			print str(data)
-			s.send('Hei')
+
+			val = input('Write 1 or 0: ')
+			s.send(str(val) + '\n')
 			print_debuginfo('send complete')
 
 	except Exception, e:
