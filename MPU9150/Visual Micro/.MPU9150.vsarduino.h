@@ -27,3 +27,7 @@ extern "C" void __cxa_pure_virtual() {;}
 #include <MPU9150.ino>
 #include <IMU.cpp>
 #include <IMU.h>
+#include <MS5803.cpp>
+#include <MS5803.h>
+#include <Timer.cpp>
+#include <Timer.h>

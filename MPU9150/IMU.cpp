@@ -5,12 +5,6 @@
 #include "IMU.h"
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\Wire\Wire.h"
 
-void IMU::init()
-{
-
-
-}
-
 void IMU::CompasSetup(){
 
 IMU::setI2C_address(COMPAS_I2C_ADDRESS);      //change Address to Compass
