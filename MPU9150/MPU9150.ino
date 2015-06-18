@@ -1,24 +1,43 @@
+#include "MS5803_14BA.h"
 #include "Timer.h"
 #include "MS5803.h"
 #include "IMU.h"
 #include <Wire.h>
 //#include <Wire.h>
-//#include "MPU9150.h"
 
-IMU sensor;
+//IMU sensor;
+MS5803_14BA depthSensor;
+
 void setup()
 {
 	Serial.begin(9600);
 	Wire.begin();
-	Serial.print("setup done \n");
-	sensor.CompasSetup();
+	//Serial.print("setup done \n");
+	//sensor.CompasSetup();
+	depthSensor.initialize(true);
+	
+	
+
 }
 
 
 void loop()
 {	
-	//Serial.print(sensor.read(MPU9150_CMPS_XOUT_L,MPU9150_CMPS_XOUT_H));
-	Serial.print(sensor.readAll());
+	depthSensor.read();
+	Serial.println(depthSensor.getPreassure());
+	
+	/*
+	Serial.println(sensor.readAll());
+	//Serial.print('/n');
+	delay(100);
+	//Serial.println(depthSensor.getDepth());
+	//Serial.println(depthSensor.readAdcPreassure());
+	//Serial.println(depthSensor.readAdcTemperature());
+	depthSensor.readSensor();
+	Serial.println(depthSensor.pressure());
+	Serial.println(depthSensor.temperature());
+	
+	*/
 	
 	 //this is working but reading only one thing at a time. 
 	/*

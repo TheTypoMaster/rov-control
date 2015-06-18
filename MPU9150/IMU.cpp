@@ -102,7 +102,6 @@ int IMU::write(int address , int data){
 }
 
 
-
 IMU::IMU(){
 	//Serial.print("start setup: \n");
 	//write(MPU9150_PWR_MGMT_1, 0);

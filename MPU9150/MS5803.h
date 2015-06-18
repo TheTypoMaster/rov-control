@@ -9,17 +9,78 @@
 	#include "WProgram.h"
 #endif
 
-
+class MS_5803 {
+public:
+	// Constructor for the class. 
+	// The argument is the desired oversampling resolution, which has 
+	// values of 256, 512, 1024, 2048, 4096
+    MS_5803(uint16_t Resolution = 512);
+    // Initialize the sensor 
+    boolean initializeMS_5803(boolean Verbose = true);
+    // Reset the sensor
+    void resetSensor();
+    // Read the sensor
+    void readSensor();
+    //*********************************************************************
+    // Additional methods to extract temperature, pressure (mbar), and the 
+    // D1,D2 values after readSensor() has been called
+    
+    // Return temperature in degrees Celsius.
+    float temperature() const       {return tempC;}  
+    // Return pressure in mbar.
+    float pressure() const          {return mbar;}
+//    // Return temperature in degress Fahrenheit.
+//    float temperatureF() const		{return tempF;}
+//    // Return pressure in psi (absolute)
+//    float psia() const				{return psiAbs;}
+//    // Return pressure in psi (gauge)
+//    float psig() const				{return psiGauge;}
+//    // Return pressure in inHg
+//    float inHg() const				{return inHgPress;}
+//    // Return pressure in mmHg
+//    float mmHg() const				{return mmHgPress;}
+    // Return the D1 and D2 values, mostly for troubleshooting
+    unsigned long D1val() const 	{return D1;}
+    unsigned long D2val() const		{return D2;}
+    
+    
+private:
+    
+    float mbar; // Store pressure in mbar. 
+    float tempC; // Store temperature in degrees Celsius
+//    float tempF; // Store temperature in degrees Fahrenheit
+//    float psiAbs; // Store pressure in pounds per square inch, absolute
+//    float psiGauge; // Store gauge pressure in pounds per square inch (psi)
+//    float inHgPress;	// Store pressure in inches of mercury
+//    float mmHgPress;	// Store pressure in mm of mercury
+    unsigned long D1;	// Store D1 value
+    unsigned long D2;	// Store D2 value
+    int32_t mbarInt; // pressure in mbar, initially as a signed long integer
+    // Check data integrity with CRC4
+    unsigned char MS_5803_CRC(unsigned int n_prom[]); 
+    // Handles commands to the sensor.
+    unsigned long MS_5803_ADC(char commandADC);
+    // Oversampling resolution
+    uint16_t _Resolution;
+};
+/*
 class MS5803
 {
  private:
-
+	// old one
+	//bool WaterType;
 
  public:
+		
+	// old one
 	void sendCommand(byte command);
 	void device_setup();
 	void device_loop();
 	long readAdcPreassure();
+	long readAdcTemperature();
+	int getDepth();
+	MS5803();
+		
 };
 
 //extern MS5803 MS5803;
@@ -51,7 +112,7 @@ class MS5803
 //variables depending on fresh or salt water.
 #define FreshWater (0)
 #define SaltWater (1)
-
+*/
 
 #endif
 
