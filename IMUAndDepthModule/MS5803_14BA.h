@@ -45,6 +45,7 @@ class MS5803_14BA
 	
 };
 
+
 // defines:
 // i2C_address might be 0x77 if R6 is added and R5 is removed from the open ROV module.
 #define MS5803_I2C_ADDRESS	0x76
@@ -54,7 +55,7 @@ class MS5803_14BA
 #define COMMAND_RESET		0x1E
 #define COMMAND_ADC_READ	0x00
 #define COMMAND_D1_256		0x40
-#define COMMAND_D1_512		0x42	
+#define COMMAND_D1_512		0x42
 #define COMMAND_D1_1024		0x44
 #define COMMAND_D1_2048		0x46
 #define COMMAND_D1_4096		0x48
@@ -64,8 +65,6 @@ class MS5803_14BA
 #define COMMAND_D2_2048		0x56
 #define COMMAND_D2_4096		0x58
 
-
-//extern MS5803_14BAClass MS5803_14BA;
 
 #endif
 

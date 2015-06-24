@@ -24,8 +24,9 @@ extern "C" void __cxa_pure_virtual() {;}
 
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\variants\mega\pins_arduino.h" 
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\arduino.h"
-#include <MPU9150.ino>
+#include <IMUAndDepthSensor.ino>
 #include <IMU.cpp>
 #include <IMU.h>
 #include <MS5803_14BA.cpp>
 #include <MS5803_14BA.h>
+#include <test.h>

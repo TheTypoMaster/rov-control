@@ -3,7 +3,7 @@
 // 
 
 #include "IMU.h"
-#include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\libraries\Wire\Wire.h"
+#include <Wire.h>
 
 void IMU::CompasSetup(){
 

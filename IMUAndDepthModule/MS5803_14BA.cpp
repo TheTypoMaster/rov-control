@@ -236,14 +236,13 @@ unsigned long MS5803_14BA::MS5803_ADC(int8_t commandADC) {
 // Based on code from Measurement Specialties application note AN520
 // http://www.meas-spec.com/downloads/C-Code_Example_for_MS56xx,_MS57xx_%28except_analog_sensor%29_and_MS58xx_Series_Pressure_Sensors.pdf
 //
-
 unsigned char MS5803_14BA::MS5803_CRC(uint16_t n_prom[]) {
 	int cnt;				// simple counter
 	unsigned int n_rem;		// crc reminder
 	unsigned int crc_read;	// original value of the CRC
 	unsigned char  n_bit;
 	n_rem = 0x00;
-	crc_read = MS5803_14BA::sensorCoefficients_[7];		// save read CRC
+	crc_read = MS5803_14BA::sensorCoefficients_[7];		// save CRC value read form register
 	MS5803_14BA::sensorCoefficients_[7] = (0xFF00 & (MS5803_14BA::sensorCoefficients_[7])); // CRC byte replaced with 0
 	for (cnt = 0; cnt < 16; cnt++)
 	{ // choose LSB or MSB
@@ -271,5 +270,4 @@ unsigned char MS5803_14BA::MS5803_CRC(uint16_t n_prom[]) {
 }
 
 
-//MS5803_14BAClass MS5803_14BA;
 
