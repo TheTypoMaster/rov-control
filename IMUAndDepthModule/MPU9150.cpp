@@ -2,7 +2,7 @@
 // 
 // 
 
-#include "IMU.h"
+#include "MPU9150.h"
 #include <Wire.h>
 
 void IMU::CompasSetup(){

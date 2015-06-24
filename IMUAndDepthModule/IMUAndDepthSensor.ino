@@ -1,9 +1,7 @@
-#include "test.h"
 #include "MS5803_14BA.h"
-#include "IMU.h"
+#include "MPU9150.h"
 #include <Wire.h>
 
-:
 //IMU sensor;
 MS5803_14BA depthSensor;
 
@@ -11,11 +9,11 @@ void setup()
 {
 	Serial.begin(9600);
 	Wire.begin();
-	//Serial.print("setup done \n");
+	
 	//sensor.CompasSetup();
 	depthSensor.initialize(true);
 	
-	
+	Serial.print("setup done \n");
 
 }
 
