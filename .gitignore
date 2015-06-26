@@ -319,7 +319,6 @@ ClientBin/
 *.pfx
 *.publishsettings
 node_modules/
-<<<<<<< HEAD
 bower_components/
 orleans.codegen.cs
 
@@ -359,3 +358,8 @@ FakesAssemblies/
 *.atsln
 *.atsuo
 *.cppproj
+
+######## Visual Micro ################
+Visual Micro/
+*.vsarduino.h
+*.vmps.xml
