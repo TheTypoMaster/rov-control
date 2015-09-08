@@ -23,11 +23,11 @@ def connect():
         break
     return s
 
-def send_and_recieve(msg, socket):
+def send_and_receive(msg, socket):
     socket.sendall(msg)
     data = socket.recv(1024)
     print 'Received', repr(data)
 
 def echo():
     socket = connect()
-    send_and_recieve("hi", socket)
+    send_and_receive("hi", socket)

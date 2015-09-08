@@ -14,7 +14,7 @@ socket = tcp_client.connect()
 
 print "Sending data"
 for line in sys.stdin:
-    send_and_recieve(msg, socket)
+    send_and_receive(msg, socket)
     time.sleep(float(delay))
 
 tcp_client.close()
